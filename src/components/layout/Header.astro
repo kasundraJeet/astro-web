@@ -1,3 +1,25 @@
-<header>
-    
+<header class="custom-container header">
+  <a href="/" class="logo">Jacob Grönberg</a>
+  <button>
+    <svg
+      width="56"
+      height="24"
+      viewBox="0 0 56 24"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <rect x="6" y="0.5" width="50" height="1" fill="black"></rect>
+      <rect x="21" y="11.5" width="35" height="1" fill="black"></rect>
+      <rect x="11" y="22.5" width="45" height="1" fill="black"></rect>
+    </svg>
+  </button>
 </header>
+
+<style>
+  .logo {
+    @apply uppercase text-heading-4 text-default;
+  }
+  .header {
+    @apply flex items-center justify-between w-full pt-12;
+  }
+</style>

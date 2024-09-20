@@ -9,6 +9,7 @@ export default {
         secondary: "var(--secondary)",
         muted: "var(--muted)",
         inverse: "var(--inverse)",
+        border: "var(--border)",
       },
       fontSize: {
         "text-l": "var(--text-l)",
