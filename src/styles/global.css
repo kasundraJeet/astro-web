@@ -87,3 +87,10 @@
   @apply w-full mx-auto max-w-[1400px] px-3;
 }
 
+.custom-container-small{
+  @apply w-full mx-auto max-w-[1147px] px-3
+}
+
+.social-link {
+  @apply uppercase text-heading-6 text-default;
+}

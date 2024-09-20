@@ -1,0 +1,160 @@
+---
+import { Image } from "astro:assets";
+import LayoutWrapper from "../components/layout/LayoutWrapper.astro";
+import myImage from "../../public/person-image.png";
+
+const experiences = [
+  {
+    title: "Art Director",
+    sub_title: "Art Studio",
+    year: "Okt 2020 - currently",
+  },
+  {
+    title: "jury",
+    sub_title: "Awwards",
+    year: "june 2020",
+  },
+  {
+    title: "Photographer & Art director",
+    sub_title: "Freelance",
+    year: "Okt 2019 - Sep 2020",
+  },
+  {
+    title: "Art Study",
+    sub_title: "Harvard",
+    year: "Jan 2016 - Sep 2019",
+  },
+];
+
+const recognitions = [
+  {
+    title: "Photography Portfoltio",
+    year: "Feb 2022",
+    awward: "Awwards",
+  },
+  {
+    title: "Cover Photo",
+    year: "May 2021",
+    awward: "Time Magazine",
+  },
+  {
+    title: "Design Portfolio",
+    year: "Dec 2020",
+    awward: "Awwards",
+  },
+];
+---
+
+<LayoutWrapper>
+  <section class="custom-container pb-28 pt-12">
+    <div class="grid grid-cols-2 items-center">
+      <div class="w-full pt-[640px] relative">
+        <Image
+          src={myImage}
+          alt="Jacob Grønberg Image"
+          class="absolute inset-0 w-full h-full object-cover"
+        />
+      </div>
+      <div class="-ml-96  relative z-20">
+        <h2 class="page-sub-title">about</h2>
+        <h1 class="page-title">Jacob Grønberg</h1>
+      </div>
+    </div>
+  </section>
+  <section class="custom-container-small space-y-24">
+    <div class="grid grid-cols-3 gap-1">
+      <div>
+        <h4 class="section-title">about</h4>
+      </div>
+      <div class="col-span-2 space-y-4">
+        <p class="text-default text-text-m">
+          Massa vitae tortor condimentum lacinia quis vel eros donec. In
+          fermentum et sollicitudin ac orci phasellus egestas tellus rutrum.
+          Congue nisi vitae suscipit tellus mauris a diam maecenas. Vestibulum
+          morbi blandit cursus risus at ultrices mi tempus imperdiet.
+        </p>
+        <p class="text-default text-text-m">
+          Sit amet aliquam id diam maecenas ultricies mi eget. Tortor id aliquet
+          lectus proin. Varius quam quisque id diam vel quam elementum pulvinar.
+        </p>
+        <p class="text-default text-text-m">
+          Nisi porta lorem mollis aliquam ut. Pulvinar pellentesque habitant
+          morbi tristique senectus et netus et malesuada. Eget nullam non nisi
+          est sit amet facilisis magna etiam. Et tortor at risus viverra
+          adipiscing at in tellus integer. Mi sit amet mauris commodo quis
+          imperdiet massa.
+        </p>
+      </div>
+    </div>
+    <div class="grid grid-cols-3 gap-1">
+      <div>
+        <h4 class="section-title">Experiences</h4>
+      </div>
+      <div class="col-span-2">
+        <ul class="divide-y divide-border w-full">
+          {
+            experiences.map((data) => (
+              <li class="list-box">
+                <div>
+                  <h5>{data.title}</h5>
+                  <p>{data.sub_title}</p>
+                </div>
+                <h6>{data.year}</h6>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+    <div class="grid grid-cols-3 gap-1">
+      <div>
+        <h4 class="section-title">Recognitions</h4>
+      </div>
+      <div class="col-span-2">
+        <ul class="divide-y divide-border w-full">
+          {
+            recognitions.map((data) => (
+              <li class="list-box">
+                <div>
+                  <h5>{data.title}</h5>
+                  <p>{data.year}</p>
+                </div>
+                <h6>{data.awward}</h6>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+</LayoutWrapper>
+
+<style>
+  .section-title {
+    @apply uppercase text-default text-heading-3;
+  }
+
+  .list-box {
+    @apply py-5 flex items-start justify-between w-full;
+  }
+
+  .list-box h6 {
+    @apply text-primary text-heading-5 uppercase;
+  }
+
+  .list-box h5 {
+    @apply text-default text-heading-4 uppercase;
+  }
+
+  .list-box p {
+    @apply text-default text-text-s mt-1.5;
+  }
+
+  .page-title{
+    @apply text-primary text-heading-xl leading-none text-center
+  }
+
+  .page-sub-title{
+    @apply uppercase text-default text-heading-3 text-center
+  }
+</style>

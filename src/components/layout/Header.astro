@@ -1,3 +1,45 @@
+---
+const socialLinks = [
+  {
+    name: "Twitter",
+    path: "/",
+  },
+  {
+    name: "Instagram",
+    path: "/",
+  },
+  {
+    name: "Facebook",
+    path: "/",
+  },
+];
+
+const headerLinks = [
+  {
+    title: "home",
+    link: "/",
+  },
+  {
+    title: "projects",
+    link: "/projects",
+  },
+  {
+    title: "Exhibitions",
+    link: "/exhibitions",
+  },
+  {
+    title: "about",
+    link: "/about",
+  },
+  {
+    title: "Contact",
+    link: "/contact",
+  },
+];
+
+const { url } = Astro;
+---
+
 <header class="custom-container header">
   <a href="/" class="logo">Jacob Grönberg</a>
   <button>
@@ -15,11 +57,69 @@
   </button>
 </header>
 
+<div class="header-dialog">
+  <div class="w-full h-full flex flex-col items-center justify-between">
+    <div class="flex items-center w-full justify-between">
+      <h3 class="logo">Jacob Grönberg</h3>
+      <button> X </button>
+    </div>
+    <div class="h-full flex items-center justify-center w-full">
+      <ul class="flex flex-col items-center gap-3">
+        {headerLinks.map((data, i) => (
+          <li>
+            <a
+              href={data.link}
+              class={url.pathname === data.link ? "active header-link" : "header-link"}
+            >
+              <span>{i + 1}</span> {data.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+    <div class="flex w-full items-center justify-between">
+      <p class="text-text-s text-default">
+        <a href="/" class="text-primary">© Made by Pawel Gola</a> - Powered by Webflow
+      </p>
+      <ul class="flex items-center gap-7">
+        {socialLinks.map((data) => (
+          <li>
+            <a href={data.path} class="social-link">
+              {data.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</div>
+
 <style>
   .logo {
     @apply uppercase text-heading-4 text-default;
   }
   .header {
-    @apply flex items-center justify-between w-full pt-12;
+    @apply flex items-center justify-between w-full pt-8;
+  }
+
+  .header-dialog {
+    @apply w-full h-dvh bg-white z-50 fixed overflow-y-auto inset-0 p-8 transition-transform duration-300 ease-in-out;
+    transform: translateY(-100%);
+  }
+
+  .header-dialog.open {
+    transform: translateY(0);
+  }
+
+  .header-link {
+    @apply text-center uppercase text-default text-heading-m flex items-center gap-8;
+  }
+
+  .header-link.active {
+    @apply text-primary;
+  }
+
+  .header-link span {
+    @apply text-primary text-heading-3 uppercase;
   }
 </style>
