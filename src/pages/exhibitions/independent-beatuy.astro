@@ -1,0 +1,101 @@
+---
+import { Image } from "astro:assets";
+import LayoutWrapper from "../../components/layout/LayoutWrapper.astro";
+
+const information = [
+  {
+    title: "Date",
+    ans: "16 Jun 2022 - 18 Oct 2022",
+  },
+  {
+    title: "Opening Hours",
+    ans: "Monday to Saturday from 11 pm to 6 pm",
+  },
+  {
+    title: "Location",
+    ans: "Art Studio",
+  },
+  {
+    title: "Address",
+    ans: "Main Street 2, 12101 Berlin",
+  },
+];
+---
+
+<LayoutWrapper>
+  <section class="my-20 custom-container-small">
+    <div class="space-y-2 relative z-20">
+      <p class="text-default text-text-l text-center">16 Jun 2022</p>
+      <h1>Independent Beatuy</h1>
+    </div>
+    <Image
+      src="/independent-beatuy.png"
+      alt="Independent Beatuy"
+      width="800"
+      height={875}
+      class="mx-auto -mt-24"
+    />
+  </section>
+  <section class="custom-container-small grid grid-cols-3">
+    <div></div>
+    <div class="col-span-2 space-y-20">
+      <div class="space-y-9">
+        <h4>about</h4>
+        <div class="space-y-4">
+          <p class="text-default text-text-m">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
+            veritatis qui commodi exercitationem doloremque molestias
+            consequuntur numquam? Laborum deserunt voluptatibus eveniet
+            quibusdam praesentium quas?
+          </p>
+          <p class="text-default text-text-m">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          </p>
+          <p class="text-default text-text-m">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet
+            veritatis qui commodi exercitationem doloremque molestias
+            consequuntur numquam? Laborum deserunt voluptatibus eveniet
+            quibusdam praesentium quas?
+          </p>
+        </div>
+      </div>
+      <div class="space-y-9">
+        <h4>Information</h4>
+        <ul class="divide-y divide-border">
+          {
+            information.map((data) => (
+              <li class="information-box">
+                <h6>{data.title}</h6>
+                <p>{data.ans}</p>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+</LayoutWrapper>
+
+<style>
+  h1 {
+    @apply text-primary text-heading-xl leading-none text-center;
+  }
+  h4 {
+    @apply uppercase text-default text-heading-3;
+  }
+  .information-box {
+    @apply w-full flex items-center justify-between py-7;
+  }
+
+  .information-box  h6{
+    @apply text-primary text-heading-4 capitalize
+  }
+
+  .information-box p{
+    @apply text-default text-text-m
+  }
+
+  .information-box:nth-child(1) {
+    @apply pt-0;
+  }
+</style>
