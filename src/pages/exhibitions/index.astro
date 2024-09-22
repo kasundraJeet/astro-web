@@ -1,41 +1,82 @@
 ---
 import LayoutWrapper from "../../components/layout/LayoutWrapper.astro";
+import ExhibitionsBox from "../../components/ExhibitionsBox.astro";
 
-const exhibitions = [
-  {
-    image: "",
-    place: "New York -- Town Hall -- 2022",
-    data: {
-      month: "Jun",
-      date: "16",
+const exhibitions = {
+  current: [
+    {
+      image: "/exhibition/image-1.png",
+      place: "New York -- Town Hall -- 2022",
+      data: {
+        month: "Jun",
+        date: "16",
+      },
+      title: "Independent Beauty",
+      descption:
+        "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
     },
-    title: "Independent Beauty",
-    descption:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
-  },
-  {
-    image: "",
-    place: "Berlin -- Kunsthalle -- 2022",
-    data: {
-      month: "Mar",
-      date: "02",
+    {
+      image: "/exhibition/image-2.png",
+      place: "Berlin -- Kunsthalle -- 2022",
+      data: {
+        month: "Mar",
+        date: "02",
+      },
+      title: "In Humanity We Beauty Trust",
+      descption:
+        "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod.",
     },
-    title: "In Humanity We Beauty Trust",
-    descption:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod.",
-  },
-  {
-    image: "",
-    place: "Berlin -- Kunsthalle -- 2022",
-    data: {
-      month: "Feb",
-      date: "01",
+    {
+      image: "/exhibition/image-3.png",
+      place: "Berlin -- Kunsthalle -- 2022",
+      data: {
+        month: "Feb",
+        date: "01",
+      },
+      title: "Berlinat Night",
+      descption:
+        "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore.",
     },
-    title: "Berlinat Night",
-    descption:
-      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore.",
-  },
-];
+  ],
+  past: [
+    {
+      image: "/exhibition/image-4.png",
+      place: "Paris -- Le Louvre -- 2021",
+      data: {
+        month: "Dec",
+        date: "10",
+      },
+      title: "Art Beyond Borders",
+      descption:
+        "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.",
+    },
+    {
+      image: "/exhibition/image-5.png",
+      place: "Tokyo -- National Museum -- 2021",
+      data: {
+        month: "Sep",
+        date: "25",
+      },
+      title: "Timeless Wonders",
+      descption:
+        "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod invidunt ut labore.",
+    },
+    {
+      image: "/exhibition/image-6.png",
+      place: "London -- Tate Modern -- 2020",
+      data: {
+        month: "Nov",
+        date: "13",
+      },
+      title: "Expression of Modernity",
+      descption:
+        "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna.",
+    }
+  ],
+};
+
+
+
 ---
 
 <LayoutWrapper>
@@ -63,33 +104,21 @@ const exhibitions = [
     </div>
   </section>
   <section class="divide-y divide-border">
-    <div class="custom-container w-full space-y-24">
-      <h3 class="section-title">Current <span>Exhibitions</span></h3>
-      <ul class="divide-y divide-border">
-        {
-          exhibitions.map((data) => (
-            <li class="exhibitions-box">
-              <div>
-                <div />
-                <div class="space-y-4">
-                  <div class="space-y-2">
-                    <h6>{data.place}</h6>
-                    <h4>{data.title}</h4>
-                  </div>
-                  <p>{data.descption}</p>
-                </div>
-              </div>
-              <div class="flex items-center gap-12">
-                <a href="#">Buy Ticket </a>
-                <div>
-                  <p>{data.data.month}</p>
-                  <h5>{data.data.date}</h5>
-                </div>
-              </div>
-            </li>
-          ))
-        }
-      </ul>
+    <div>
+      <div class="custom-container w-full space-y-24">
+        <h3 class="section-title">Current <span>Exhibitions</span></h3>
+        <ul class="divide-y divide-border">
+          <ExhibitionsBox exhibitions={exhibitions.current} />
+        </ul>
+      </div>
+    </div>
+    <div class="pt-24">
+      <div class="custom-container w-full space-y-24">
+        <h3 class="section-title">Past <span>Exhibitions</span></h3>
+        <ul class="divide-y divide-border">
+          <ExhibitionsBox exhibitions={exhibitions.past} />
+        </ul>
+      </div>
     </div>
   </section>
 </LayoutWrapper>
@@ -113,33 +142,5 @@ const exhibitions = [
 
   .section-title span {
     @apply text-primary;
-  }
-
-  .exhibitions-box {
-    @apply flex w-full items-center justify-between gap-12 py-12;
-  }
-
-  .exhibitions-box:nth-child(1){
-    @apply pt-0
-  }
-
-  .exhibitions-box h4 {
-    @apply text-default text-heading-2 leading-none;
-  }
-
-  .exhibitions-box h5{
-    @apply text-primary text-heading-l leading-none
-  }
-
-  .exhibitions-box h6 {
-    @apply text-default text-text-m;
-  }
-
-  .exhibitions-box p{
-    @apply text-default text-text-m max-w-4xl
-  }
-
-  .exhibitions-box a{
-    @apply text-primary text-text-m
   }
 </style>
