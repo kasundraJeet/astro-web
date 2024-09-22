@@ -1,4 +1,5 @@
 ---
+import Circle from "../Circle.astro";
 const socialLinks = [
   {
     name: "Twitter",
@@ -59,7 +60,13 @@ const footerLinks = {
   },
 };
 ---
-
+<div class="py-32 flex items-center justify-center gap-12">
+  <Circle />
+  <div class="space-y-2">
+    <h3>Let’s Work</h3>
+    <h3>Together</h3>
+  </div>
+</div>
 <footer class="custom-container footer">
   <div class="grid grid-cols-4 px-16">
     <div class="col-span-2 space-y-2">
@@ -131,5 +138,12 @@ const footerLinks = {
   }
   .footer-group-link-list {
     @apply flex flex-col items-start gap-5;
+  }
+
+  h3{
+    @apply text-heading-l text-default uppercase leading-none
+  }
+  h3:nth-child(2){
+    @apply text-primary capitalize
   }
 </style>
