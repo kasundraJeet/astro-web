@@ -55,7 +55,7 @@ const recognitions = [
           class="absolute inset-0 w-full h-full object-cover"
         />
       </div>
-      <div class="-ml-96  relative z-20">
+      <div class="-ml-96 relative z-20">
         <h2 class="page-sub-title">about</h2>
         <h1 class="page-title">Jacob Grønberg</h1>
       </div>
@@ -138,6 +138,10 @@ const recognitions = [
     @apply py-5 flex items-start justify-between w-full;
   }
 
+  .list-box:nth-child(1) {
+    @apply pt-0;
+  }
+
   .list-box h6 {
     @apply text-primary text-heading-5 uppercase;
   }
@@ -150,11 +154,11 @@ const recognitions = [
     @apply text-default text-text-s mt-1.5;
   }
 
-  .page-title{
-    @apply text-primary text-heading-xl leading-none text-center
+  .page-title {
+    @apply text-primary text-heading-xl leading-none text-center;
   }
 
-  .page-sub-title{
-    @apply uppercase text-default text-heading-3 text-center
+  .page-sub-title {
+    @apply uppercase text-default text-heading-3 text-center;
   }
 </style>

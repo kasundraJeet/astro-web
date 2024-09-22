@@ -1,0 +1,145 @@
+---
+import LayoutWrapper from "../../components/layout/LayoutWrapper.astro";
+
+const exhibitions = [
+  {
+    image: "",
+    place: "New York -- Town Hall -- 2022",
+    data: {
+      month: "Jun",
+      date: "16",
+    },
+    title: "Independent Beauty",
+    descption:
+      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.",
+  },
+  {
+    image: "",
+    place: "Berlin -- Kunsthalle -- 2022",
+    data: {
+      month: "Mar",
+      date: "02",
+    },
+    title: "In Humanity We Beauty Trust",
+    descption:
+      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod.",
+  },
+  {
+    image: "",
+    place: "Berlin -- Kunsthalle -- 2022",
+    data: {
+      month: "Feb",
+      date: "01",
+    },
+    title: "Berlinat Night",
+    descption:
+      "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore.",
+  },
+];
+---
+
+<LayoutWrapper>
+  <section class="hero-section">
+    <div class="space-y-2">
+      <h1>Exhibitions</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt.
+      </p>
+    </div>
+    <div>
+      <svg
+        class="mx-auto"
+        width="20"
+        height="164"
+        viewBox="0 0 20 164"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M20 154L18.607 152.57L11 160.15L11 0L9 0L9 160.15L1.427 152.57L0 154L10 164L20 154Z"
+          fill="#DB574D"></path>
+      </svg>
+    </div>
+  </section>
+  <section class="divide-y divide-border">
+    <div class="custom-container w-full space-y-24">
+      <h3 class="section-title">Current <span>Exhibitions</span></h3>
+      <ul class="divide-y divide-border">
+        {
+          exhibitions.map((data) => (
+            <li class="exhibitions-box">
+              <div>
+                <div />
+                <div class="space-y-4">
+                  <div class="space-y-2">
+                    <h6>{data.place}</h6>
+                    <h4>{data.title}</h4>
+                  </div>
+                  <p>{data.descption}</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-12">
+                <a href="#">Buy Ticket </a>
+                <div>
+                  <p>{data.data.month}</p>
+                  <h5>{data.data.date}</h5>
+                </div>
+              </div>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</LayoutWrapper>
+
+<style>
+  .hero-section {
+    @apply w-full text-center py-40 space-y-14;
+  }
+
+  .hero-section h1 {
+    @apply text-primary text-heading-xl leading-none;
+  }
+
+  .hero-section p {
+    @apply text-default text-text-l max-w-xl mx-auto font-medium;
+  }
+
+  .section-title {
+    @apply uppercase text-default text-heading-1;
+  }
+
+  .section-title span {
+    @apply text-primary;
+  }
+
+  .exhibitions-box {
+    @apply flex w-full items-center justify-between gap-12 py-12;
+  }
+
+  .exhibitions-box:nth-child(1){
+    @apply pt-0
+  }
+
+  .exhibitions-box h4 {
+    @apply text-default text-heading-2 leading-none;
+  }
+
+  .exhibitions-box h5{
+    @apply text-primary text-heading-l leading-none
+  }
+
+  .exhibitions-box h6 {
+    @apply text-default text-text-m;
+  }
+
+  .exhibitions-box p{
+    @apply text-default text-text-m max-w-4xl
+  }
+
+  .exhibitions-box a{
+    @apply text-primary text-text-m
+  }
+</style>
