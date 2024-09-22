@@ -1,0 +1,36 @@
+---
+import LayoutWrapper from "../components/layout/LayoutWrapper.astro";
+---
+
+<LayoutWrapper>
+  <h1 class="absolute left-0 top-0 opacity-0 text-heading-2">
+    contact jeet kasundra
+  </h1>
+  <section
+    class="custom-container-small py-40 flex items-center justify-center"
+  >
+    <ul class="flex items-stretch gap-12">
+      <li>
+        <a href="https://github.com/kasundraJeet/astro-web" class="social-link">
+          Git Hub
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 22 22"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M5.52051 16.48L16.1271 5.87338" stroke="#DB574D"></path>
+            <path d="M6.58105 5.5199H16.4805V15.4194" stroke="#DB574D"></path>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </section>
+</LayoutWrapper>
+
+<style>
+  .social-link {
+    @apply flex items-center justify-center text-text-l text-primary underline cursor-pointer gap-2;
+  }
+</style>
